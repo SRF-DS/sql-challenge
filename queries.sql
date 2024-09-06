@@ -1,7 +1,10 @@
 -- 1. List employee number, last name, first name, sex, and salary
-SELECT e.emp_no, e.last_name, e.first_name, e.gender, s.salary
+SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
 FROM Employees e
 JOIN Salaries s ON e.emp_no = s.emp_no;
+
+SELECT *
+FROM titles
 
 -- 2. List employees hired in 1986
 SELECT first_name, last_name, hire_date
@@ -21,7 +24,7 @@ JOIN Employees e ON de.emp_no = e.emp_no
 JOIN Departments d ON de.dept_no = d.dept_no;
 
 -- 5. List employees named Hercules B.
-SELECT first_name, last_name, gender
+SELECT first_name, last_name, sex
 FROM Employees
 WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 
@@ -44,3 +47,7 @@ SELECT last_name, COUNT(*) as frequency
 FROM Employees
 GROUP BY last_name
 ORDER BY frequency DESC;
+
+SELECT * FROM employees LIMIT 5;
+SELECT * FROM departments LIMIT 5;
+-- Repeat for other tables
